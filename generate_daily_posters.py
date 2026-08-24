@@ -95,30 +95,30 @@ say_data = data["spin_a_yarn"]
 rap_data = data["read_aloud"]
 doi_data = data["daughters_of_india"]
 
-html_content = f"""<!DOCTYPE html>
+html_template = """<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Daily High-Impact Social Posters ({today_str})</title>
+  <title>Daily High-Impact Social Posters (__TODAY__)</title>
   <style>
-    @page {{
+    @page {
       size: 210mm 297mm;
       margin: 0;
-    }}
-    *, *::before, *::after {{
+    }
+    *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-    }}
-    body {{
+    }
+    body {
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       margin: 0;
       padding: 0;
       background: #000000;
       color: #111111;
       -webkit-font-smoothing: antialiased;
-    }}
-    .poster-page {{
+    }
+    .poster-page {
       width: 210mm;
       height: 297mm;
       padding: 24mm 22mm 22mm 22mm;
@@ -126,17 +126,14 @@ html_content = f"""<!DOCTYPE html>
       page-break-after: always;
       display: block;
       overflow: hidden;
-    }}
+    }
 
-    /* -------------------------------------------------------------
-       POSTER 1: SPIN A YARN INDIA
-       Palette: Electric Violet #8c52ff | Vibrant Gold #f9e300 | Midnight #0c061d
-       ------------------------------------------------------------- */
-    .poster-say {{
+    /* POSTER 1: SPIN A YARN INDIA */
+    .poster-say {
       background-color: #0c061d;
       color: #ffffff;
-    }}
-    .say-pill {{
+    }
+    .say-pill {
       display: inline-block;
       background: rgba(140, 82, 255, 0.22);
       border: 1.5px solid #8c52ff;
@@ -147,8 +144,8 @@ html_content = f"""<!DOCTYPE html>
       font-weight: 800;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-    }}
-    .say-meta {{
+    }
+    .say-meta {
       float: right;
       font-size: 11px;
       font-weight: 700;
@@ -156,8 +153,8 @@ html_content = f"""<!DOCTYPE html>
       color: #8c52ff;
       text-transform: uppercase;
       margin-top: 10px;
-    }}
-    .say-sub {{
+    }
+    .say-sub {
       font-size: 13px;
       font-weight: 800;
       letter-spacing: 0.22em;
@@ -165,8 +162,8 @@ html_content = f"""<!DOCTYPE html>
       text-transform: uppercase;
       margin-top: 55px;
       margin-bottom: 15px;
-    }}
-    .say-headline {{
+    }
+    .say-headline {
       font-size: 40px;
       font-weight: 900;
       line-height: 1.08;
@@ -174,65 +171,62 @@ html_content = f"""<!DOCTYPE html>
       text-transform: uppercase;
       color: #ffffff;
       margin-bottom: 35px;
-    }}
-    .say-headline span {{
-      color: #f9e300;
-    }}
-    .say-card {{
+    }
+    .say-card {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(140, 82, 255, 0.35);
       border-left: 6px solid #f9e300;
       border-radius: 14px;
       padding: 24px 26px;
       margin-bottom: 35px;
-    }}
-    .say-quote {{
+    }
+    .say-quote {
       font-size: 16px;
       line-height: 1.55;
       color: #ece8f8;
       font-style: italic;
       margin-bottom: 14px;
-    }}
-    .say-author {{
+    }
+    .say-author {
       font-size: 11px;
       font-weight: 800;
       color: #f9e300;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-    }}
-    .say-tagline-box {{
+    }
+    .say-tagline-box {
       border: 2px dashed rgba(249, 227, 0, 0.7);
       background: rgba(249, 227, 0, 0.06);
       border-radius: 10px;
       padding: 16px 20px;
       text-align: center;
       margin-bottom: 30px;
-    }}
-    .say-tagline-text {{
+    }
+    .say-tagline-text {
       font-size: 13px;
       font-weight: 900;
       letter-spacing: 0.14em;
       color: #f9e300;
       text-transform: uppercase;
-    }}
-    .say-footer {{
+    }
+    .say-footer {
       position: absolute;
       bottom: 22mm;
       left: 22mm;
       right: 22mm;
       border-top: 1.5px solid rgba(140, 82, 255, 0.3);
       padding-top: 16px;
-    }}
-    .say-footer-left {{
+    }
+    .say-footer-left {
       float: left;
       font-size: 11px;
       color: #a497c2;
       line-height: 1.45;
-    }}
-    .say-footer-left strong {{
+    }
+    .say-footer-left strong {
       color: #ffffff;
-    }}
-    .say-cta {{
+    }
+    .say-cta {
       float: right;
       background: #f9e300;
       color: #0c061d;
@@ -242,47 +236,7 @@ html_content = f"""<!DOCTYPE html>
       font-weight: 900;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-    }}
+    }
 
-    /* -------------------------------------------------------------
-       POSTER 2: THE READ ALOUD PROJECT
-       Palette: Luminous Cyan #00c3d9 | Slate Navy #0b1c2d | Paper #f3fafc
-       ------------------------------------------------------------- */
-    .poster-trap {{
-      background-color: #f3fafc;
-      color: #0b1c2d;
-    }}
-    .trap-pill {{
-      display: inline-block;
-      background: #00c3d9;
-      color: #0b1c2d;
-      padding: 9px 18px;
-      border-radius: 999px;
-      font-size: 11px;
-      font-weight: 900;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }}
-    .trap-meta {{
-      float: right;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 0.14em;
-      color: #5c7b91;
-      text-transform: uppercase;
-      margin-top: 10px;
-    }}
-    .trap-stat-num {{
-      font-size: 72px;
-      font-weight: 900;
-      line-height: 0.95;
-      letter-spacing: -0.04em;
-      color: #00c3d9;
-      margin-top: 55px;
-      margin-bottom: 12px;
-    }}
-    .trap-stat-headline {{
-      font-size: 32px;
-      font-weight: 900;
-      line-height: 1.15;
-      letter-spacing: -
+    /* POSTER 2: THE READ ALOUD PROJECT */
+    .poster-trap {
