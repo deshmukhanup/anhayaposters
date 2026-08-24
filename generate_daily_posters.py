@@ -3,61 +3,73 @@ import json
 import datetime
 from google import genai
 from weasyprint import HTML
-from PIL import Image, ImageDraw, ImageFont
 
 # Initialize Gemini Client
 client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
 
 today_str = datetime.date.today().strftime("%B %d, %Y")
+day_of_year = datetime.date.today().strftime("%j")
 os.makedirs("output", exist_ok=True)
 
 # 1. Ask Gemini to generate fresh content for today
 prompt = f"""
-Generate unique, daily cultural/educational copy for 3 brands for today ({today_str}).
+Act as an expert creative copywriter. Generate daily social media content for 3 brands for today ({today_str}).
 Return strictly valid JSON with this exact schema:
 {{
   "spin_a_yarn": {{
-    "issue": "Vol. 2026 • Issue {datetime.date.today().strftime('%j')}",
-    "headline": "...",
-    "quote": "...",
-    "topic": "...",
-    "ig_caption": "...",
-    "li_caption": "..."
+    "issue": "Vol. 2026 • Issue {day_of_year}",
+    "headline": "Short provocative hook in ALL CAPS",
+    "quote": "Inspiring quote/insight on oral storytelling and memory",
+    "topic": "Topic name",
+    "ig_caption": "Engaging Instagram caption with emojis and hashtags",
+    "li_caption": "Thoughtful LinkedIn caption"
   }},
   "read_aloud": {{
-    "issue": "Daily Insight #{datetime.date.today().strftime('%j')}",
+    "issue": "Daily Insight #{day_of_year}",
     "stat_num": "15 MINUTES",
-    "headline": "...",
-    "insight": "...",
-    "ig_caption": "...",
-    "li_caption": "..."
+    "headline": "Bold stat statement about early childhood reading aloud",
+    "insight": "Neurodevelopment and cognitive fact",
+    "ig_caption": "Engaging Instagram caption with emojis and hashtags",
+    "li_caption": "Thoughtful LinkedIn caption"
   }},
   "daughters_of_india": {{
-    "issue": "Movement Issue #{datetime.date.today().strftime('%j')}",
-    "headline": "...",
-    "quote": "...",
-    "ig_caption": "...",
-    "li_caption": "..."
+    "issue": "Movement Issue #{day_of_year}",
+    "headline": "Empowerment anthem statement",
+    "quote": "Quote on sisterhood, leadership, and solidarity",
+    "ig_caption": "Engaging Instagram caption with emojis and hashtags",
+    "li_caption": "Thoughtful LinkedIn caption"
   }}
 }}
 """
 
+# Call Gemini with the recommended model: gemini-3.6-flash
 response = client.models.generate_content(
-    model="gemini-2.5-flash",
+    model="gemini-3.6-flash",
     contents=prompt,
-    config={"response_mime_type": "application/json"}
+    config={
+        "response_mime_type": "application/json"
+    }
 )
 
-data = json.loads(response.text)
+# Parse response text
+raw_text = response.text.strip()
+if raw_text.startswith("```json"):
+    raw_text = raw_text[7:]
+if raw_text.startswith("```"):
+    raw_text = raw_text[3:]
+if raw_text.endswith("```"):
+    raw_text = raw_text[:-3]
 
-# Save the Social Captions to Markdown
-with open("output/social_captions.md", "w") as f:
+data = json.loads(raw_text.strip())
+
+# 2. Save Social Captions to Markdown
+with open("output/social_captions.md", "w", encoding="utf-8") as f:
     f.write(f"# Daily Social Media Captions — {today_str}\n\n")
     f.write(f"## 1. Spin a Yarn India\n### Instagram\n{data['spin_a_yarn']['ig_caption']}\n\n### LinkedIn\n{data['spin_a_yarn']['li_caption']}\n\n")
     f.write(f"## 2. The Read Aloud Project\n### Instagram\n{data['read_aloud']['ig_caption']}\n\n### LinkedIn\n{data['read_aloud']['li_caption']}\n\n")
     f.write(f"## 3. Daughters of India\n### Instagram\n{data['daughters_of_india']['ig_caption']}\n\n### LinkedIn\n{data['daughters_of_india']['li_caption']}\n\n")
 
-# 2. Build the multi-page A4 HTML document
+# 3. Build multi-page A4 HTML document
 html_content = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -116,9 +128,9 @@ html_content = f"""<!DOCTYPE html>
 </body>
 </html>"""
 
-with open("output/index.html", "w") as f:
+with open("output/index.html", "w", encoding="utf-8") as f:
     f.write(html_content)
 
-# 3. Export to PDF
+# 4. Render to PDF
 HTML("output/index.html").write_pdf("output/daily_posters.pdf")
 print("Generated daily posters, captions, and PDF successfully!")
