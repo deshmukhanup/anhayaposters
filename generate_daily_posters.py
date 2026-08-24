@@ -240,3 +240,347 @@ html_template = """<!DOCTYPE html>
 
     /* POSTER 2: THE READ ALOUD PROJECT */
     .poster-trap {
+      background-color: #f3fafc;
+      color: #0b1c2d;
+    }
+    .trap-pill {
+      display: inline-block;
+      background: #00c3d9;
+      color: #0b1c2d;
+      padding: 9px 18px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .trap-meta {
+      float: right;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      color: #5c7b91;
+      text-transform: uppercase;
+      margin-top: 10px;
+    }
+    .trap-stat-num {
+      font-size: 72px;
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      color: #00c3d9;
+      margin-top: 55px;
+      margin-bottom: 12px;
+    }
+    .trap-stat-headline {
+      font-size: 32px;
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: #0b1c2d;
+      margin-bottom: 35px;
+    }
+    .trap-stat-headline span {
+      border-bottom: 4px solid #00c3d9;
+      padding-bottom: 2px;
+    }
+    .trap-box {
+      background: #ffffff;
+      border: 2px solid #d2eff4;
+      border-radius: 16px;
+      padding: 24px 26px;
+      margin-bottom: 35px;
+    }
+    .trap-box-title {
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.15em;
+      color: #00c3d9;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .trap-box-body {
+      font-size: 15.5px;
+      line-height: 1.55;
+      color: #2b4255;
+      font-weight: 500;
+    }
+    .trap-tagline-box {
+      background: #0b1c2d;
+      border-radius: 12px;
+      padding: 18px 20px;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .trap-tagline-text {
+      font-size: 13.5px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      color: #ffffff;
+      text-transform: uppercase;
+    }
+    .trap-tagline-text span {
+      color: #00c3d9;
+      font-weight: 900;
+    }
+    .trap-footer {
+      position: absolute;
+      bottom: 22mm;
+      left: 22mm;
+      right: 22mm;
+      border-top: 1.5px solid #d4ebef;
+      padding-top: 16px;
+    }
+    .trap-footer-left {
+      float: left;
+      font-size: 11px;
+      color: #557288;
+      line-height: 1.45;
+    }}
+    .trap-footer-left strong {
+      color: #0b1c2d;
+    }
+    .trap-cta {
+      float: right;
+      background: #00c3d9;
+      color: #0b1c2d;
+      padding: 9px 18px;
+      border-radius: 7px;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* POSTER 3: DAUGHTERS OF INDIA */
+    .poster-doi {
+      background-color: #faf5f0;
+      color: #2b1a18;
+    }
+    .doi-pill {
+      display: inline-block;
+      background: #c14436;
+      color: #ffffff;
+      padding: 9px 18px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .doi-meta {
+      float: right;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      color: #c14436;
+      text-transform: uppercase;
+      margin-top: 10px;
+    }
+    .doi-emblem {
+      width: 44px;
+      height: 44px;
+      margin-top: 50px;
+      margin-bottom: 15px;
+    }
+    .doi-headline {
+      font-family: Georgia, serif;
+      font-size: 42px;
+      font-weight: 900;
+      line-height: 1.12;
+      letter-spacing: -0.01em;
+      color: #2b1a18;
+      margin-bottom: 35px;
+    }
+    .doi-card {
+      background: #ffffff;
+      border: 1.5px solid #ebd9d2;
+      border-radius: 16px;
+      padding: 24px 26px;
+      margin-bottom: 35px;
+    }
+    .doi-card-body {
+      font-size: 15.5px;
+      line-height: 1.6;
+      color: #4a302d;
+      font-weight: 500;
+    }
+    .doi-tagline-badge {
+      border: 2px solid #c14436;
+      background: #faece9;
+      border-radius: 10px;
+      padding: 16px 20px;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .doi-tagline-text {
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      color: #c14436;
+      text-transform: uppercase;
+    }
+    .doi-footer {
+      position: absolute;
+      bottom: 22mm;
+      left: 22mm;
+      right: 22mm;
+      border-top: 1.5px solid #ebd9d2;
+      padding-top: 16px;
+    }
+    .doi-footer-left {
+      float: left;
+      font-size: 11px;
+      color: #724e4a;
+      line-height: 1.45;
+    }
+    .doi-footer-left strong {
+      color: #2b1a18;
+    }
+    .doi-cta {
+      float: right;
+      background: #c14436;
+      color: #ffffff;
+      padding: 9px 18px;
+      border-radius: 7px;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE 1: SPIN A YARN INDIA -->
+  <div class="poster-page poster-say">
+    <div>
+      <div class="say-pill">Spin A Yarn India • Daily Lore</div>
+      <div class="say-meta">__SAY_ISSUE__</div>
+      <div style="clear: both;"></div>
+    </div>
+    
+    <div class="say-sub">__SAY_SUBLABEL__</div>
+    <h1 class="say-headline">__SAY_HEADLINE__</h1>
+    
+    <div class="say-card">
+      <p class="say-quote">"__SAY_QUOTE__"</p>
+      <div class="say-author">__SAY_AUTHOR__</div>
+    </div>
+
+    <div class="say-tagline-box">
+      <div class="say-tagline-text">Preserve, Protect & Promote Indian Culture & Heritage</div>
+    </div>
+
+    <div class="say-footer">
+      <div class="say-footer-left">
+        <strong>Topic:</strong> __SAY_TOPIC__ • <strong>#SpinAYarnIndia</strong><br>
+        Reviving living folk wisdom daily.
+      </div>
+      <div class="say-cta">SHARE ON STORIES → @SpinAYarnIndia</div>
+      <div style="clear: both;"></div>
+    </div>
+  </div>
+
+  <!-- PAGE 2: THE READ ALOUD PROJECT -->
+  <div class="poster-page poster-trap">
+    <div>
+      <div class="trap-pill">The Read Aloud Project</div>
+      <div class="trap-meta">__RAP_ISSUE__</div>
+      <div style="clear: both;"></div>
+    </div>
+
+    <div class="trap-stat-num">__RAP_STAT_NUM__</div>
+    <h1 class="trap-stat-headline"><span>__RAP_STAT_STMT__</span></h1>
+
+    <div class="trap-box">
+      <div class="trap-box-title">__RAP_BOX_TITLE__</div>
+      <p class="trap-box-body">__RAP_BOX_BODY__</p>
+    </div>
+
+    <div class="trap-tagline-box">
+      <div class="trap-tagline-text"><span>Your Voice,</span> Their Imagination</div>
+    </div>
+
+    <div class="trap-footer">
+      <div class="trap-footer-left">
+        <strong>Today's Mission:</strong> __RAP_MISSION__<br>
+        #ReadAloudProject • Tag a parent who needs this reminder.
+      </div>
+      <div class="trap-cta">SAVE • SHARE • @ReadAloudProject</div>
+      <div style="clear: both;"></div>
+    </div>
+  </div>
+
+  <!-- PAGE 3: DAUGHTERS OF INDIA -->
+  <div class="poster-page poster-doi">
+    <div>
+      <div class="doi-pill">Daughters of India</div>
+      <div class="doi-meta">__DOI_ISSUE__</div>
+      <div style="clear: both;"></div>
+    </div>
+
+    <!-- Inline Sisterhood Radial Icon -->
+    <svg class="doi-emblem" viewBox="0 0 24 24" fill="none" stroke="#c14436" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="4"></circle>
+      <path d="M12 2v2"></path>
+      <path d="M12 20v2"></path>
+      <path d="m4.93 4.93 1.41 1.41"></path>
+      <path d="m17.66 17.66 1.41 1.41"></path>
+      <path d="M2 12h2"></path>
+      <path d="M20 12h2"></path>
+      <path d="m6.34 17.66-1.41 1.41"></path>
+      <path d="m19.07 4.93-1.41 1.41"></path>
+    </svg>
+
+    <h1 class="doi-headline">__DOI_HEADLINE__</h1>
+
+    <div class="doi-card">
+      <p class="doi-card-body">__DOI_BODY__</p>
+    </div>
+
+    <div class="doi-tagline-badge">
+      <div class="doi-tagline-text">✿  Real Girls Support Each Other</div>
+    </div>
+
+    <div class="doi-footer">
+      <div class="doi-footer-left">
+        <strong>www.daughtersofindia.in</strong> • #DaughtersOfIndia<br>
+        __DOI_MOTTO__
+      </div>
+      <div class="doi-cta">TAG YOUR SISTERS → @DaughtersOfIndia</div>
+      <div style="clear: both;"></div>
+    </div>
+  </div>
+
+</body>
+</html>"""
+
+# Replace placeholders safely
+html_content = (
+    html_template
+    .replace("__TODAY__", today_str)
+    .replace("__SAY_ISSUE__", str(say_data.get('volume_issue', '')))
+    .replace("__SAY_SUBLABEL__", str(say_data.get('sublabel', '')))
+    .replace("__SAY_HEADLINE__", str(say_data.get('headline_plain', '')))
+    .replace("__SAY_QUOTE__", str(say_data.get('narrative_quote', '')))
+    .replace("__SAY_AUTHOR__", str(say_data.get('quote_attribution', '')))
+    .replace("__SAY_TOPIC__", str(say_data.get('topic_meta', '')))
+    .replace("__RAP_ISSUE__", str(rap_data.get('insight_tracker', '')))
+    .replace("__RAP_STAT_NUM__", str(rap_data.get('focal_stat_number', '')))
+    .replace("__RAP_STAT_STMT__", str(rap_data.get('focal_stat_statement', '')))
+    .replace("__RAP_BOX_TITLE__", str(rap_data.get('impact_box_title', '')))
+    .replace("__RAP_BOX_BODY__", str(rap_data.get('impact_box_body', '')))
+    .replace("__RAP_MISSION__", str(rap_data.get('mission_note', '')))
+    .replace("__DOI_ISSUE__", str(doi_data.get('movement_issue', '')))
+    .replace("__DOI_HEADLINE__", str(doi_data.get('headline_main', '')))
+    .replace("__DOI_BODY__", str(doi_data.get('narrative_body', '')))
+    .replace("__DOI_MOTTO__", str(doi_data.get('sub_footer_motto', '')))
+)
+
+with open("output/index.html", "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+# 4. Export Clean PDF
+HTML("output/index.html").write_pdf("output/daily_posters.pdf")
+print("Generated high-quality posters, captions, and PDF successfully!")
