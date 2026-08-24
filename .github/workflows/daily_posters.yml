@@ -1,0 +1,44 @@
+name: Daily 9AM Social Poster Automation
+
+on:
+  schedule:
+    # 03:30 UTC is exactly 09:00 AM IST
+    - cron: '30 3 * * *'
+  workflow_dispatch: # Allows you to manually trigger it anytime via button
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install System Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libpango-1.0-0 libharfbuzz0b libpangoft2-1.0-0
+
+      - name: Install Python Packages
+        run: |
+          pip install google-genai weasyprint Pillow requests
+
+      - name: Run Poster & Caption Generator
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python generate_daily_posters.py
+
+      - name: Commit and Push Daily Outputs
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add output/
+          git commit -m "Auto-generated daily posters for $(date +'%Y-%m-%d')" || exit 0
+          git push
